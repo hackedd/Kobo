@@ -1,0 +1,6 @@
+.redo/
+*.[do]
+/rawtopng/compile.sh
+/rawtopng/link.sh
+/rawtopng/rawtopng
+/rawtopng/pngtoraw
