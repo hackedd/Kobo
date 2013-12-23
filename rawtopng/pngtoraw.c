@@ -13,8 +13,8 @@ int convert_png_file(const char* filename, const char* raw_filename, int compres
     png_infop info_ptr;
     png_bytep* row_pointers;
     png_bytep p;
-    FILE *fp, *outfp;
-    gzFile gzoutfp;
+    FILE *fp, *outfp = NULL;
+    gzFile gzoutfp = NULL;
 
     if ((fp = fopen(filename, "rb")) == NULL)
     {
@@ -63,7 +63,7 @@ int convert_png_file(const char* filename, const char* raw_filename, int compres
     png_set_sig_bytes(png_ptr, bytes);
 
     /* Make sure we get an 8-bits RGB image by converting 1, 2, 4 and 16-bit
-       samples and removing the alpha channel if present. */
+     * samples and removing the alpha channel if present. */
     png_read_png(png_ptr, info_ptr, PNG_TRANSFORM_STRIP_16 |
                                     PNG_TRANSFORM_PACKING |
                                     PNG_TRANSFORM_STRIP_ALPHA |

@@ -155,10 +155,15 @@ int main(int argc, char** argv)
             }
             output_is_dir = 1;
         }
+        else
+        {
+            output_is_dir = 0;
+        }
     }
     else
     {
         perror("stat");
+        return 1;
     }
 
     for (i = optind; i < argc - 1; i++)
