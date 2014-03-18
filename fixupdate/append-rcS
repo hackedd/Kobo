@@ -1,0 +1,10 @@
+
+hostname kobo
+
+mkdir -p /dev/pts
+mount -t devpts devpts /dev/pts
+
+if [ -e /mnt/onboard/boot.sh ]; then
+    /mnt/onboard/boot.sh &
+fi
+
